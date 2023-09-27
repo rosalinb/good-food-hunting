@@ -13,7 +13,7 @@ const pagesRouter = require("./routes/pages_routes");
 const usersRouter = require("./routes/users_routes");
 
 const app = express();
-const port = 8080; //process.env.PORT || 8080
+const port = process.env.PORT || 8080;
 
 app.set("view engine", "ejs");
 
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true })); // parse req body
 app.use(reqBodyMethodOverride);
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || "mistyrose",
     resave: false,
     saveUninitialized: true,
   })
