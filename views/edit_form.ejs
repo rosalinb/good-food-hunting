@@ -1,0 +1,10 @@
+<h2>edit dish</h2>
+
+<form action="/dishes/<%= dish.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="">title</label>
+  <input name="title" type="text" value="<%= dish.title %>">
+  <label for="">image url</label>
+  <input name="image_url" type="text" value="<%= dish.image_url %>">
+  <button>update</button>
+</form>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <% if (userId) { %>
+    <%= user.email %>
+  <% } %>
+
+  <nav>
+    <a href="/">home</a>
+    <a href="/about">about</a>
+    <% if (userId) { %>
+    <a href="/dishes/new">share</a>
+    <% } %>
+
+    <% if (userId) { %>
+      <form action="/logout" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+      </form>
+    <% } else { %>
+      <a href="/login">login</a>
+    <% } %>
+      <a href="/signup">signup</a>
+  </nav>
+
+  <h1>goodfoodhunting</h1>
+
+  <%- body %>
+</body>
+</html>
